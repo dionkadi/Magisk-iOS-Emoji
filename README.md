@@ -18,6 +18,7 @@ Systemlessly replaces the emoji font with iOS Emoji.
 
 ## Compatibility
 - **Magisk Version**: Requires Magisk v24.0 or higher.
+- **KernelSU**: Supported — install the same release ZIP via KernelSU Manager (KernelSU runs `customize.sh` directly; `META-INF` is ignored).
 - **Android Version**: Tested on Android 10 and above. May work on older versions, but not guaranteed.
 - **Devices**: Works on most devices. Check the [Tested On](#tested-on) section for more details.
 
@@ -26,6 +27,9 @@ Systemlessly replaces the emoji font with iOS Emoji.
 *Example of iOS emojis displayed on an Android device.*
 
 ## Changelog
+### v26.4.1
+- Added KernelSU support (same ZIP installs via KernelSU Manager; KernelSU runs `customize.sh` directly)
+
 ### v26.4
 - Added 26.4 Emojis ([Unicode 17.0](https://emojipedia.org/unicode-17.0)) Thanks to [mistu01/MEEMEmoji](https://github.com/mistu01/MEEMEmoji) for the source.
 

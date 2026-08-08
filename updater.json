@@ -1,6 +1,6 @@
 {
-  "version": "v26.4",
-  "versionCode": 26400,
-  "zipUrl": "https://github.com/Keinta15/Magisk-iOS-Emoji/releases/download/v26.4/Magisk_iOS_Emoji_26.4.zip",
-  "changelog": "https://raw.githubusercontent.com/Keinta15/Magisk-iOS-Emoji/main/Changelog.md"
+  "version": "v26.4.1",
+  "versionCode": 264100,
+  "zipUrl": "https://github.com/dionkadi/Magisk-iOS-Emoji/releases/download/v26.4.1/Magisk_iOS_Emoji_26.4.1.zip",
+  "changelog": "https://raw.githubusercontent.com/dionkadi/Magisk-iOS-Emoji/main/Changelog.md"
  }

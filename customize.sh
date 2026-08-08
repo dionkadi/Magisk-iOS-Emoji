@@ -13,8 +13,13 @@ POSTFSDATA=false
 LATESTARTSERVICE=true
 
 ui_print "*************************************"
-ui_print "*          iOS Emoji 26.4           *"
+ui_print "*         iOS Emoji 26.4.1         *"
 ui_print "*************************************"
+
+# KernelSU detection (ksud sources this script with KSU=true; ui_print is provided)
+if [ "$KSU" = "true" ]; then
+    ui_print "- KernelSU detected"
+fi
 
 # Definitions
 FONT_DIR="$MODPATH/system/fonts"
@@ -185,8 +190,8 @@ ui_print "- Enjoy your new emojis! :)"
 OVERLAY_IMAGE_EXTRA=0
 OVERLAY_IMAGE_SHRINK=true
 
-# Only use OverlayFS if Magisk_OverlayFS is installed
-if [ -f "/data/adb/modules/magisk_overlayfs/util_functions.sh" ] && \
+# Only use OverlayFS if Magisk_OverlayFS is installed (Magisk only; KernelSU uses meta-overlayfs instead)
+if [ "$KSU" != "true" ] && [ -f "/data/adb/modules/magisk_overlayfs/util_functions.sh" ] && \
     /data/adb/modules/magisk_overlayfs/overlayfs_system --test; then
   ui_print "- Add support for overlayfs"
   . /data/adb/modules/magisk_overlayfs/util_functions.sh

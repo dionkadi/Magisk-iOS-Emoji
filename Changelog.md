@@ -1,5 +1,9 @@
 
 ## Changelog
+v26.4.1
+- Added KernelSU support: the same ZIP now installs via KernelSU Manager (KernelSU runs `customize.sh` directly; `META-INF` is ignored). Magisk-only OverlayFS logic is skipped on KernelSU.
+- Updated update URLs to this fork.
+
 v26.4
 - Added 26.4 Emojis ([Unicode 17.0](https://emojipedia.org/unicode-17.0)) Thanks to [mistu01/MEEMEmoji](https://github.com/mistu01/MEEMEmoji) for the source.
 
