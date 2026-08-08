@@ -1,7 +1,7 @@
 id=iOS_Emoji
 name=iOS 26.4 Emoji font
-version=v26.4.1
-versionCode=264100
+version=v26.4.2
+versionCode=264200
 author=Keinta15
 description=Systemlessly replaces emoji font with iOS 26.4 Emoji
 updateJson=https://raw.githubusercontent.com/dionkadi/Magisk-iOS-Emoji/main/updater.json

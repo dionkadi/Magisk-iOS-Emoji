@@ -27,6 +27,9 @@ Systemlessly replaces the emoji font with iOS Emoji.
 *Example of iOS emojis displayed on an Android device.*
 
 ## Changelog
+### v26.4.2
+- Fixed emoji not being replaced on KernelSU devices where KSU's system overlay isn't applied (boot-time bind mount of the font into `/system/fonts`)
+
 ### v26.4.1
 - Added KernelSU support (same ZIP installs via KernelSU Manager; KernelSU runs `customize.sh` directly)
 

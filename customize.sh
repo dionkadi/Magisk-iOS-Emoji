@@ -13,7 +13,7 @@ POSTFSDATA=false
 LATESTARTSERVICE=true
 
 ui_print "*************************************"
-ui_print "*         iOS Emoji 26.4.1         *"
+ui_print "*         iOS Emoji 26.4.2         *"
 ui_print "*************************************"
 
 # KernelSU detection (ksud sources this script with KSU=true; ui_print is provided)

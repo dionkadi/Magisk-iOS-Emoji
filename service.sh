@@ -61,7 +61,7 @@ service_exists() {
 
 # Log script header
 log "================================================"
-log "iOS Emoji 18.4 service.sh Script"
+log "iOS Emoji 26.4.2 service.sh Script"
 log "Brand: $(getprop ro.product.brand)"
 log "Device: $(getprop ro.product.model)"
 log "Android Version: $(getprop ro.build.version.release)"
@@ -78,6 +78,38 @@ while [ ! -d /sdcard ]; do
 done
 
 log "INFO: Service started."
+
+# Bind-mount the emoji font into the real /system/fonts at boot.
+# Required on KernelSU: KSU's system overlay does not apply on all devices/layouts
+# (e.g. /system not a separate mountpoint), so the module font would never replace
+# the stock one. Bind mounts need no overlayfs. Skipped on Magisk, where magic
+# mount already provides the font. Module files are labeled system_file by the
+# installer, so apps can read the bind-mounted font.
+if [ "$KSU" = "true" ]; then
+    bind_system_font() {
+        log "INFO: Bind-mounting emoji font into /system/fonts..."
+        local source="$MODPATH/system/fonts/NotoColorEmoji.ttf"
+        local target
+        if [ ! -f "$source" ]; then
+            log "ERROR: Source emoji font not found. Skipping bind mount."
+            return
+        fi
+        for target in /system/fonts/NotoColorEmoji.ttf /system/fonts/NotoColorEmojiFlags.ttf \
+                      /system/fonts/SamsungColorEmoji.ttf /system/fonts/LGNotoColorEmoji.ttf \
+                      /system/fonts/HTC_ColorEmoji.ttf /system/fonts/AndroidEmoji-htc.ttf \
+                      /system/fonts/ColorUniEmoji.ttf /system/fonts/DcmColorEmoji.ttf \
+                      /system/fonts/CombinedColorEmoji.ttf /system/fonts/NotoColorEmojiLegacy.ttf; do
+            if [ -f "$target" ]; then
+                if mount -o bind "$source" "$target" 2>/dev/null; then
+                    log "INFO: Bind-mounted emoji font: $target"
+                else
+                    log "ERROR: Failed to bind-mount: $target"
+                fi
+            fi
+        done
+    }
+    bind_system_font
+fi
 
 # Replace in-app emoji fonts
 replace_emoji_fonts() {

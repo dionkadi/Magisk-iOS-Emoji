@@ -1,5 +1,8 @@
 
 ## Changelog
+v26.4.2
+- Fixed emoji not being replaced on KernelSU devices where KSU's system overlay is not applied (e.g. `/system` not a separate mountpoint). `service.sh` now bind-mounts the font into `/system/fonts` at boot on KernelSU.
+
 v26.4.1
 - Added KernelSU support: the same ZIP now installs via KernelSU Manager (KernelSU runs `customize.sh` directly; `META-INF` is ignored). Magisk-only OverlayFS logic is skipped on KernelSU.
 - Updated update URLs to this fork.
